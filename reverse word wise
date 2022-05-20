@@ -1,0 +1,44 @@
+#include<cstring>
+using namespace std;
+
+
+void reverseword(char input[],int i,int j){
+    int n=strlen(input);
+    while(i<j){
+        int temp=input[i];
+        input[i]=input[j];
+        input[j]=temp;
+        i++;
+        j--;
+    }
+    
+}
+
+void reverseStringWordWise(char input[]) {
+    
+    int n=strlen(input);
+    int i=0,j=n-1;
+    while(i<j){
+        char temp=input[i];
+        input[i]=input[j];
+        input[j]=temp;
+        i++;
+        j--;
+    }
+    int k=0;
+    int start=0,end=0;
+    for(;k<n;k++){
+        if(input[k]==' '){
+            end=k-1;
+            reverseword(input,start,end);
+            start=k+1;
+            end=k+1;
+        }
+    }
+    end=k-1;
+    reverseword(input,start,end);
+    
+    
+    
+    
+}
