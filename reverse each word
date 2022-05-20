@@ -1,0 +1,27 @@
+void reverseword(char input[],int start,int end){
+    while(start<end){
+        char temp=input[start];
+        input[start]=input[end];
+        input[end]=temp;
+        start++;
+        end--;
+    }
+}
+void reverseEachWord(char input[]) {
+    // Write your code here
+    int n=strlen(input);
+    int i=0;
+    int start=0,end=0;
+    
+    for(;i<n;i++){
+        if(input[i]==' '){
+            end=i-1;
+            reverseword(input,start,end);
+            start=i+1;
+            end=i+1;
+        }
+        
+    }
+    end=i-1;
+    reverseword(input,start,end);
+}
