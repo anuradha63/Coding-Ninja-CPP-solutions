@@ -1,0 +1,13 @@
+int arrayRotateCheck(int *a, int n)
+{
+    //Write your code here
+    for(int i=0;i<n-1;i++){
+        if(a[i]<a[i+1]){
+            continue;
+        }else if(a[i]>a[i+1]) {
+            return i+1;
+            break;
+        }
+    }
+    return 0;
+}
