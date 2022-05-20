@@ -1,0 +1,21 @@
+#include<climits>
+int findSecondLargest(int *input, int n)
+{
+    //Write your code here
+    if(n<=1){
+        return INT_MIN;
+    }
+    int f=INT_MIN,s=INT_MIN;
+    for(int i=0;i<n;i++){
+        if(input[i]>f){
+            s=f;
+            f=input[i];
+        }else if(input[i]==f){
+            continue;
+            
+        }else if(input[i]>s){
+            s=input[i];
+        }
+    }
+    return s;
+}
