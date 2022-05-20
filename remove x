@@ -1,0 +1,16 @@
+void removeX(char input[]) {
+    // Write your code here
+int i=0;
+while(input[i])
+    i++;
+    
+    if(i<1)
+        return;
+     removeX(input+1);
+    if(input[0]=='x'){
+        for(int j=1;j<=i;j++){
+            input[j-1]=input[j];
+        }
+    }
+}
+
