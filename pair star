@@ -1,0 +1,15 @@
+void pairStar(char input[]) {
+    // Write your code here
+    int len=0;
+    while(input[len])
+        len++;
+    if(len<=1)
+        return;
+    pairStar(input+1);
+    if(input[0]==input[1]){
+        for(int j=2*len;j>=1;j--)
+            input[j+1]=input[j];
+        input[1]='*';
+    }
+
+}
