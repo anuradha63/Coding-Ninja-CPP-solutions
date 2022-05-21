@@ -1,1 +1,1 @@
-# Coding-Ninja-C-solutions
+# Coding-Ninja-C++-solutions
