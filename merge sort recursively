@@ -1,0 +1,55 @@
+void mergeSort1(int a[],int s,int e){
+    int k=e-s+1;
+    int * out=new int[k];
+    int mid=(s+e)/2;
+    int i=s;
+    int j= mid+1;
+    int p=0;
+ while(i<=mid && j<=e){
+     if(a[i]<a[j]){
+         out[p]=a[i];
+         p++;
+         i++;
+     }else{
+         out[p]=a[j];
+         p++;
+         j++;
+     }
+ }
+    while(i<=mid){
+        out[p]=a[i];
+        i++;
+        p++;
+    }
+    while(j<=e){
+        out[p]=a[j];
+        j++;
+        p++;
+    }
+    int m=0;
+    for(int i=s;i<=e;i++){
+        a[i]=out[m];
+        m++;
+    }
+    delete []out;
+    
+    
+    
+}
+void mergeSort2(int a[], int s,int e){
+	// Write your code here
+    
+    if(s>=e){
+        return;
+    }
+    int mid=(s+e)/2;
+    mergeSort2(a,s,mid);
+    mergeSort2(a,mid+1,e);
+    mergeSort1(a,s,e);
+}
+void mergeSort(int a[],int n){
+    int s=0;
+    int e=n-1;
+    mergeSort2(a,s,e);
+    
+}
