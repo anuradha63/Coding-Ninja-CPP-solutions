@@ -1,0 +1,54 @@
+int partition(int input[],int si,int ei){
+    int pivot=si;
+    
+    int count=0;
+    for(int i=si+1;i<=ei;i++){
+        if(input[i]<=input[pivot]){
+            count++;
+        }
+    }
+    int j=count+si;
+    int temp=input[pivot];
+    input[pivot]=input[j];
+    input[j]=temp;
+    
+    int k=si,l=ei;
+    while(k<j || l>j){
+        if(input[k]<=input[j]){
+            k++;
+        }else if(input[l]>input[j]){
+            l--;
+        }else{
+            int temp=input[k];
+            input[k]=input[l];
+            input[l]=temp;
+            k++;
+            l--;
+        }
+    }
+    return j;
+    
+}
+
+
+
+void quickSort1(int input[],int si,int ei){
+    if(si>=ei){
+        return;
+    }
+    int j=partition(input,si,ei);
+    quickSort1(input,si,j-1);
+    quickSort1(input,j+1,ei);
+    
+}
+
+void quickSort(int input[], int size) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Change in the given array itself.
+     Taking input and printing output is handled automatically.
+  */
+    int si=0,ei=size-1;
+    quickSort1(input,si,ei);
+
+}
